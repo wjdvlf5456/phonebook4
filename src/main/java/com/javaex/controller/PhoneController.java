@@ -21,10 +21,7 @@ public class PhoneController {
 	@Autowired
 	private PhoneService phoneService;
 	
-	// 생성자
-	// 메소드 - gs
 	// 메소드-일반
-
 	// ===================================== 목록 =====================================
 	@RequestMapping(value = "/list", method = { RequestMethod.GET, RequestMethod.POST })
 	public String List(Model model) {

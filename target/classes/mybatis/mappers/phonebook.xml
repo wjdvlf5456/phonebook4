@@ -4,7 +4,15 @@
 <mapper namespace="phonebook">
 	<select id="selectList" resultType="com.javaex.vo.PersonVo">
 		<![CDATA[
-		 select person_id, name, hp, company from person order by person_id asc
+		 select person_id as personId,
+				name,
+				hp,
+				company
+		 from person
+		 order by person_id asc
 		]]>
 	</select>
+	<insert id="personInsert" parameterType="com.javaex.vo.PersonVo">
+		<![CDATA[insert into person values(seq_person_id.nextval, #{name} ,#{hp} ,#{company})]]>
+	</insert>
 </mapper>
