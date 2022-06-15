@@ -6,7 +6,9 @@
 	<packaging>war</packaging>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.springframework-version>4.3.3.RELEASE</org.springframework-version>
+		<oracle.version>19.3.0.0</oracle.version>
 	</properties>
 
 	<dependencies>
@@ -33,18 +35,37 @@
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
-			<version>19.3.0.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.oracle.database.jdbc</groupId>
-					<artifactId>simplefan</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.oracle.database.jdbc</groupId>
-					<artifactId>ons</artifactId>
-				</exclusion>
-			</exclusions>
+			<version>${oracle.version}</version>
 		</dependency>
+
+		<!-- Oracle Cloud DB for Connection Start -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ucp</artifactId>
+			<version>${oracle.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/oraclepki -->
+		<dependency>
+			<groupId>com.oracle.database.security</groupId>
+			<artifactId>oraclepki</artifactId>
+			<version>${oracle.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_core -->
+		<dependency>
+			<groupId>com.oracle.database.security</groupId>
+			<artifactId>osdt_core</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_cert -->
+		<dependency>
+			<groupId>com.oracle.database.security</groupId>
+			<artifactId>osdt_cert</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
+		<!-- Oracle Cloud DB for Connection End -->
 
 		<!-- jstl -->
 		<dependency>
