@@ -10,31 +10,28 @@ import com.javaex.vo.PersonVo;
 
 @Service
 public class PhoneService {
-	
+
 	@Autowired
 	private PhoneDao phoneDao;
-	
-	public List<PersonVo> personSelect(){
+
+	public List<PersonVo> personSelect() {
 		return phoneDao.personSelect();
 	}
-	
+
 	public int personInsert(PersonVo personVo) {
-		return phoneDao.personinsert(personVo);
+		return phoneDao.personInsert(personVo);
 	}
-	
+
 	public int personDelete(int personId) {
-		return phoneDao.persondelete(personId);
+		return phoneDao.personDelete(personId);
 	}
-	
+
 	public PersonVo getPerson(int personId) {
 		return phoneDao.getPerson(personId);
 	}
-	
+
 	public int personUpdate(PersonVo personVo) {
 		return phoneDao.personUpdate(personVo);
 	}
-	
-	
-	
-	
+
 }
