@@ -11,7 +11,9 @@
 	<h1>전화번호부</h1>
 	<h2>리스트</h2>
 	<p>입력한 정보 내용입니다.</p>
-
+	
+	<a href="/phonebook4/writeForm">전화번호 등록 폼</a> <br>
+	
 	<c:forEach items="${requestScope.personList}" var="personVo">
 		<table border="1">
 			<tr>

@@ -2,9 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="phonebook">
-	<select id="selectList" resultType="com.javaex.vo.PersonVo">
+	<resultMap id="resultMapPersonVo" type="com.javaex.vo.PersonVo">
+		<result column="person_id" property="personId"/>
+		<result column="name" property="name"/>
+		<result column="hp" property="hp"/>
+		<result column="company" property="company"/>
+	</resultMap>
+	
+	<!-- 모든 사람의 정보 가져오기 -->
+	<select id="selectList" resultMap="resultMapPersonVo">
 		<![CDATA[
-		 select person_id as personId,
+		 select person_id,
 				name,
 				hp,
 				company
@@ -12,18 +20,24 @@
 		 order by person_id asc
 		]]>
 	</select>
+	
+	<!-- 사람 추가로 등록하기 -->
 	<insert id="personInsert" parameterType="com.javaex.vo.PersonVo">
 		<![CDATA[
 		insert into person  
 	 	values(seq_person_id.nextval, #{name} ,#{hp} ,#{company})
 		]]>
 	</insert>
+	
+	<!-- 사람 정보 1명 지우기 -->
 	<delete id="personDelete" parameterType="int">
 		<![CDATA[
 		delete from person 
 		where person_id = #{person_id}
 		]]>
 	</delete>
+	
+	<!-- 사람 정보 수정하기 -->
 	<update id="personUpdate" parameterType="com.javaex.vo.PersonVo">
 		<![CDATA[
 		update  person 
@@ -31,11 +45,13 @@
 				hp=#{hp}, 
 				company=#{company} 
 		where person_id = #{personId}
-		]]>	
+		]]>
 	</update>
-	<select id="getPerson" parameterType="int" resultType="com.javaex.vo.PersonVo">
+	
+	<!-- 1명 정보 가져오기 -->
+	<select id="getPerson" parameterType="int" resultMap="resultMapPersonVo">
 		<![CDATA[
-		 select person_id as personId,
+		 select person_id,
 				name,
 				hp,
 				company

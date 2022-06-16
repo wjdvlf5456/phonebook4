@@ -39,12 +39,14 @@ public class PhoneDao {
 
 	// 사람 수정
 	public int personUpdate(PersonVo personVo) {
+		System.out.println("PhoneDao > personUpdate()");
 		int count = sqlSession.update("phonebook.personUpdate", personVo);
 		return count;
 	}
 
 	// 1명 정보 가져오기
 	public PersonVo getPerson(int personId) {
+		System.out.println("PhoneDao > getPerson()");
 		PersonVo personVo = sqlSession.selectOne("phonebook.getPerson", personId);
 
 		return personVo;
