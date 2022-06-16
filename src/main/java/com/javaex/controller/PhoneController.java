@@ -75,11 +75,10 @@ public class PhoneController {
 	}
 
 	// ===================================== 삭제 =====================================
-	@RequestMapping(value = "/delete/{no},{id}", method = { RequestMethod.GET, RequestMethod.POST })
-	public String delete(@PathVariable("no") int no, @PathVariable("id") String id) {
+	@RequestMapping(value = "/delete/{no}", method = { RequestMethod.GET, RequestMethod.POST })
+	public String delete(@PathVariable("no") int no) {
 		int count = phoneService.personDelete(no);
 		System.out.println(count);
-		System.out.println(id);
 
 		return "redirect:/list";
 	}

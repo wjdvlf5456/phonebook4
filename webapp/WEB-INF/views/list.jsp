@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<td><a href ="/phonebook4/modifyForm/${personVo.personId }">[수정폼]</a></td>
-				<td><a href="/phonebook4/delete/${personVo.personId },${personVo.name}">[삭제]</a></td>
+				<td><a href="/phonebook4/delete/${personVo.personId }">[삭제]</a></td>
 			</tr>
 		</table>
 	</c:forEach>

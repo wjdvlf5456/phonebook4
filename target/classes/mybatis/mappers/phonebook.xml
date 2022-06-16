@@ -15,4 +15,10 @@
 	<insert id="personInsert" parameterType="com.javaex.vo.PersonVo">
 		<![CDATA[insert into person values(seq_person_id.nextval, #{name} ,#{hp} ,#{company})]]>
 	</insert>
+	<delete id="personDelete" parameterType="int">
+		<![CDATA[delete from person where person_id = #{person_id}]]>
+	</delete>
+	<update id="personUpdate" parameterType="com.javaex.vo.PersonVo">
+		<![CDATA[update person set name=#{name}, hp =#{hp},company=#{company} where person_id = #{personId}]]>	
+	</update>
 </mapper>
